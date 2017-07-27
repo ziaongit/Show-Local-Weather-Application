@@ -2,20 +2,24 @@
     GENERAL START
 ===========================*/
 @import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Oswald');
 html, body {
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
+    font-family: 'Oswald', sans-serif;
 }
 .intro {
     height: 100%;
     width: 100%;
     margin: auto;
-    background-image: url(https://www.nasa.gov/sites/default/files/thumbnails/image/smap-weather.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     display: table;
+}
+.intro-default {
+    background-image: url(https://www.nasa.gov/sites/default/files/thumbnails/image/smap-weather.jpg);
 }
 .intro .inner {
     display: table-cell;
