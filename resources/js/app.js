@@ -83,13 +83,28 @@ this.sendRequest = function(url) {
      UPDATE START
 --------------------------- */
 this.update = function(weather) {
-    temperature.innerHTML = weather.temperature;
+    console.log(weather);
+    temperature.innerHTML = weather.temperature+ ' &#8451;';
     loc.innerHTML = weather.loc;
     icon.src = weather.icon;
     description.innerHTML = weather.description;
     humidity.innerHTML = weather.humidity;
     wind.innerHTML = weather.wind;
     direction.innerHTML = degreesToDirection(weather.direction);
+
+    // Fix background image according to temprature
+
+    var backgroundValued = weather.description;
+    var backgrouund = document.getElementById("background");
+    if(backgroundValued.includes('clouds')) {
+        backgrouund.className = "clouds-background";
+    }else if(backgroundValued.includes('rain')) {
+        backgrouund.className = "rain-background";
+    }else if(backgroundValued.includes('clear')){
+        backgrouund.className = "clear-background";
+    }else {
+        backgrouund.className = "default-background";
+    }
 };
 /* --------------------------
      UPDATE END
@@ -123,11 +138,14 @@ this.degreesToDirection = function(degrees){
     TOGGLE CF START
 --------------------------- */
 this.toggleCF = function() {
-    alert('Toggle CF');
+   console.log('convert to F');
+    
 }
+
 /* --------------------------
     TOGGLE CF START
 --------------------------- */
+
 
 
     this.init();
