@@ -19,7 +19,7 @@ html, body {
     display: table;
 }
 .intro-default {
-    background-image: url(https://www.nasa.gov/sites/default/files/thumbnails/image/smap-weather.jpg);
+    background-image: url(../images/default.jpg);
 }
 .intro .inner {
     display: table-cell;
@@ -98,6 +98,11 @@ html, body {
     margin-top: 15px;
 }
 
+.top p {
+    margin-top: -20px;
+    position: relative;
+    text-transform: capitalize;
+}
 .bottom {
     height: 100px;
     background: #669999;
