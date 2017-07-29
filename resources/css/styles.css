@@ -18,8 +18,8 @@ html, body {
     background-repeat: no-repeat;
     display: table;
 }
-.intro-default {
-    background-image: url(../images/default.jpg);
+.intro-default-background {
+    background-image: url(../images/default_background.jpg);
 }
 .intro .inner {
     display: table-cell;

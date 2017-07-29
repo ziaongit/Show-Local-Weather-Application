@@ -38,7 +38,8 @@ this.updateByLaLo = function() {
     function showPosition(position) {
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
-        var url = 'http://api.openweathermap.org/data/2.5/weather?lat='+latitude+'&lon='+longitude+'&appid=dc6951009c69e18093fa15d39678b152';
+        var url = 'https://fcc-weather-api.glitch.me/api/current?lat='+latitude+'&lon='+longitude;
+       //var url = 'http://api.openweathermap.org/data/2.5/weather?lat='+latitude+'&lon='+longitude+'&appid=dc6951009c69e18093fa15d39678b152';
         sendRequest(url);
         }
 }
@@ -58,7 +59,7 @@ this.sendRequest = function(url) {
         if(xhttp.readyState == 4 && xhttp.status == 200){
             var data = JSON.parse(xhttp.responseText);
             var weather = {};
-            weather.temperature = data.main.temp;
+            weather.temperature =data.main.temp;
             weather.loc = data.name;
             weather.icon = data.weather[0].icon;
             weather.description = data.weather[0].description;
@@ -83,9 +84,10 @@ this.sendRequest = function(url) {
      UPDATE START
 --------------------------- */
 this.update = function(weather) {
+    console.log(weather);
     temperature.innerHTML = weather.temperature;
     loc.innerHTML = weather.loc;
-    icon.src = 'http://openweathermap.org/img/w/'+weather.icon+'.png';
+    icon.src = weather.icon;
     description.innerHTML = weather.description;
     humidity.innerHTML = weather.humidity;
     wind.innerHTML = weather.wind;
@@ -94,9 +96,6 @@ this.update = function(weather) {
 /* --------------------------
      UPDATE END
 --------------------------- */
-
-
-
 
 
     this.init();
