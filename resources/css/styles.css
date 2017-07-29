@@ -82,7 +82,15 @@ html, body {
     color:white;
 }
 
-.temperature {
+.temperature-celsius {
+    margin-top:30px;
+    margin-bottom:5px;
+    font-size:32px;
+    font-weight: bold;
+    width: 150px;
+}
+.temperature-fahrenheit {
+    display: none;
     margin-top:30px;
     margin-bottom:5px;
     font-size:32px;

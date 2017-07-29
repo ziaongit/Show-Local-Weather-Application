@@ -7,7 +7,8 @@
     START APP START
 --------------------------- */
 this.startApp = function(){
-    var temperature = document.getElementById('temperature');
+    var temperatureCelsius = document.getElementById('temperatureCelsius');
+    var temperatureFahrenheit = document.getElementById('temperatureFahrenheit');
     var loc = document.getElementById('loc');
     var icon = document.getElementById('icon');
     var description = document.getElementById('description');
@@ -58,7 +59,8 @@ this.sendRequest = function(url) {
         if(xhttp.readyState == 4 && xhttp.status == 200){
             var data = JSON.parse(xhttp.responseText);
             var weather = {};
-            weather.temperature =data.main.temp;
+            weather.temperatureCelsius =data.main.temp;
+            weather.temperatureFahrenheit = data.main.temp * 9 / 5 + 32;
             weather.loc = data.name;
             weather.icon = data.weather[0].icon;
             weather.description = data.weather[0].description;
@@ -83,8 +85,8 @@ this.sendRequest = function(url) {
      UPDATE START
 --------------------------- */
 this.update = function(weather) {
-    console.log(weather);
-    temperature.innerHTML = weather.temperature+ ' &#8451;';
+    temperatureCelsius.innerHTML = weather.temperatureCelsius+ ' &#8451;';
+    temperatureFahrenheit.innerHTML = weather.temperatureFahrenheit+ ' &#8457;';
     loc.innerHTML = weather.loc;
     icon.src = weather.icon;
     description.innerHTML = weather.description;
@@ -92,9 +94,18 @@ this.update = function(weather) {
     wind.innerHTML = weather.wind;
     direction.innerHTML = degreesToDirection(weather.direction);
 
-    // Fix background image according to temprature
+    fixBackground(weather.description);
 
-    var backgroundValued = weather.description;
+};
+/* --------------------------
+     UPDATE END
+--------------------------- */
+
+/* --------------------------
+     FIX BACKGROUND START
+--------------------------- */
+
+this.fixBackground = function(backgroundValued){
     var backgrouund = document.getElementById("background");
     if(backgroundValued.includes('clouds')) {
         backgrouund.className = "clouds-background";
@@ -105,9 +116,10 @@ this.update = function(weather) {
     }else {
         backgrouund.className = "default-background";
     }
-};
+}
+
 /* --------------------------
-     UPDATE END
+     FIX BACKGROUND END
 --------------------------- */
 
 /* --------------------------
@@ -138,8 +150,16 @@ this.degreesToDirection = function(degrees){
     TOGGLE CF START
 --------------------------- */
 this.toggleCF = function() {
-   console.log('convert to F');
-    
+    var fahrenheit = document.getElementById('toggleFahrenheit');
+    var celsius = document.getElementById('toggleCelsius');
+
+    if (fahrenheit.style.display === 'none') {
+        fahrenheit.style.display = 'block';
+        celsius.style.display = 'none';
+    } else {
+        fahrenheit.style.display = 'none';
+        celsius.style.display = 'block';
+    }
 }
 
 /* --------------------------
