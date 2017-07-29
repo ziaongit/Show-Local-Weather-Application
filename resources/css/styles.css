@@ -99,7 +99,7 @@ html, body {
 }
 
 .top p {
-    margin-top: -20px;
+    margin-top: -14px;
     position: relative;
     text-transform: capitalize;
 }
@@ -113,9 +113,30 @@ html, body {
 .humidity {
     padding: 8px;
 }
-
-.wind {
-}
 /* =========================
     WEATHER END
+===========================*/
+
+/* =========================
+   TOPPGLE CF BUTTON START
+===========================*/
+#toggleCF {
+    font-family: 'Oswald', sans-serif;
+    font-size: 100%;
+    color: #000;
+    cursor: pointer;
+    background: #cec;
+    border: 1px  solid black;
+    border-radius: 5px;
+    padding: 5px 20px;
+    margin-top: 15px;
+}
+#toggleCF:hover {
+    color: #FFF;
+    background: #669999;
+    border: 1px solid white;
+}
+
+/* =========================
+   TOGGLE CF TEM BUTTON END
 ===========================*/

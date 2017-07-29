@@ -9,32 +9,35 @@
 	<title>Show Local Weather Application</title>
 </head>
 <body>
-	<section class="intro intro-default">
+	<section class="intro intro-default-background">
 		<div class="inner">
 			<div class="content">
-						<h1>Show Current Weather Application</h1>
-						<div class="weather-app">
-							<div class="left">
-								<div class="temperature"><span id="temperature">0</span>&deg;</div> 
-								<div class="location"><span id="loc">Unknown</span></div>
-								
-							</div>	
-							<div class="right">
-								<div class="top">
-									<img id="icon" width="75px" src="http://openweathermap.org/img/w/11d.png" />
-									<p id="description"></p>
-								</div>
-								<div class="bottom">
-								<div class="humidity">
-									<img src="resources/images/humidity.png" height="16px" />
+				<h1>Show Current Weather Application</h1>
+				<div class="weather-app">
+					<div class="left">
+						<div class="temperature"><span id="temperature">0</span>&deg;</div> 
+						<div class="location"><span id="loc">Unknown</span></div>
+						
+					</div>	
+					<div class="right">
+						<div class="top">
+							<img id="icon" width="75px" src="http://openweathermap.org/img/w/11d.png" />
+							<p id="description"></p>
+						</div>
+						<div class="bottom">
+							<div class="humidity">
+								<span>Humidity: 
 									<span id="humidity">0</span>%
-								</div>
-								<div class="wind">
-									<span id="wind">0</span> MPH <span id="direction">N</span>
-								</div>
+									<span>&#128167</span>
+								</span>
+							</div>
+							<div class="wind">
+								<span>Wind: <span id="wind">0</span> m/h | Direction: <span id="direction">N</span></span>
 							</div>
 						</div>
+					</div>
 				</div>
+				<button onclick="toggleCF();" id="toggleCF" class="button">Toggle C/F</button>
 			</div>
 		</div>
 	</section>

@@ -39,7 +39,6 @@ this.updateByLaLo = function() {
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
         var url = 'https://fcc-weather-api.glitch.me/api/current?lat='+latitude+'&lon='+longitude;
-       //var url = 'http://api.openweathermap.org/data/2.5/weather?lat='+latitude+'&lon='+longitude+'&appid=dc6951009c69e18093fa15d39678b152';
         sendRequest(url);
         }
 }
@@ -84,17 +83,50 @@ this.sendRequest = function(url) {
      UPDATE START
 --------------------------- */
 this.update = function(weather) {
-    console.log(weather);
     temperature.innerHTML = weather.temperature;
     loc.innerHTML = weather.loc;
     icon.src = weather.icon;
     description.innerHTML = weather.description;
     humidity.innerHTML = weather.humidity;
     wind.innerHTML = weather.wind;
-    direction.innerHTML = weather.direction;
+    direction.innerHTML = degreesToDirection(weather.direction);
 };
 /* --------------------------
      UPDATE END
+--------------------------- */
+
+/* --------------------------
+ DEGREES TO DITECTION START
+--------------------------- */
+this.degreesToDirection = function(degrees){
+    var range = 360/16;
+    var low = 360 - range/2;
+    var high = (low + range) % 360;
+    var angles = ['N', 'NNE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW','NW','NNW'];
+    
+    for(i in angles) {
+        low = (low + range) % 360;
+        high = (high + range) % 360;
+        if(degrees >= low && degrees < high){ 
+            return angles[i];
+        }
+        
+    }
+
+    return 'N';
+}
+/* --------------------------
+ DEGREES TO DITECTION START
+--------------------------- */
+
+/* --------------------------
+    TOGGLE CF START
+--------------------------- */
+this.toggleCF = function() {
+    alert('Toggle CF');
+}
+/* --------------------------
+    TOGGLE CF START
 --------------------------- */
 
 
