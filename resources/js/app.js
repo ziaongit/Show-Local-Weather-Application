@@ -154,8 +154,8 @@ this.toggleCF = function() {
     var celsius = document.getElementById('toggleCelsius');
 
     if (fahrenheit.style.display === 'none') {
-        fahrenheit.style.display = 'block';
         celsius.style.display = 'none';
+        fahrenheit.style.display = 'block';
     } else {
         fahrenheit.style.display = 'none';
         celsius.style.display = 'block';
